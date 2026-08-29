@@ -4,13 +4,14 @@ const SETTINGS = {
 
 const products = [
   {
-    title: "Escova Secadora",
-    category: "Beleza",
-    store: "TikTok Shop",
-    emoji: "💇‍♀️",
-    description: "Praticidade para secar e modelar os cabelos em casa.",
+    title: "Chaleira Elétrica Unitermi Inox 1,8L",
+    category: "Casa e Cozinha",
+    store: "Mercado Livre",
+    image: "assets/chaleira-unitermi.webp",
+    description: "Chaleira elétrica em inox com 1,8 L de capacidade e desligamento automático.",
     priceText: "Confira o preço",
-    link: "#"
+    link: "https://meli.la/2VUq12T",
+    page: "produtos/chaleira-eletrica-unitermi/"
   },
   {
     title: "Aspirador Vertical",
@@ -85,12 +86,13 @@ function renderProducts() {
       <article class="product-card">
         <div class="product-visual">
           <span class="store-badge">${p.store}</span>
-          <span aria-hidden="true">${p.emoji}</span>
+          ${p.image ? `<img class="product-image" src="${p.image}" alt="${p.title}" loading="lazy">` : `<span aria-hidden="true">${p.emoji}</span>`}
         </div>
         <div class="product-body">
           <span class="product-category">${p.category}</span>
           <h3 class="product-title">${p.title}</h3>
           <p class="product-desc">${p.description}</p>
+          ${p.page ? `<a class="detail-link" href="${p.page}">Ver detalhes do produto →</a>` : ""}
           <div class="product-meta">
             <span class="price-text">${p.priceText}</span>
             ${enabled
